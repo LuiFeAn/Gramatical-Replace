@@ -1,5 +1,6 @@
 function correctStrings(strings, inputs) {
 
+
   const correctedStrings = strings.map(function(str){
 
     let minDistance = Infinity;
@@ -31,6 +32,12 @@ function levenshteinDistance(str1, str2) {
   const m = str1.length;
 
   const n = str2.length;
+
+  if( str1.includes(' ') || str2.includes(' ') ){
+
+    throw new Error('Send only words');
+
+  }
 
   const dp = Array.from(Array(m + 1), () => Array(n + 1).fill(0));
 
@@ -65,23 +72,15 @@ function levenshteinDistance(str1, str2) {
 }
 
 const strings = [
-  'BeléM',
-  'Beêm',
-  'BElêm',
-  ',Elbem',
-  'Ananin',
-  'Ananíndeua',
-  'Anánindeua',
-  'An$nind',
-  'SNntârém',
-  'Santarém',
-  'Sântarêm'
+  'Oin',
+  'Legau',
+  'incriver'
 ];
 
 const inputs = [
-  'Belém',
-  'Ananindeua',
-  'Santarém'
+  'Oi',
+  'Legal',
+  'Incível'
 ];
 
 const correctedStrings = correctStrings(strings, inputs);
